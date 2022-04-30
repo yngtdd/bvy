@@ -6,6 +6,10 @@ struct Person;
 #[derive(Component)]
 struct Name(String);
 
+struct GreetTimer(Timer);
+
+pub struct HelloPlugin;
+
 fn add_people(mut commands: Commands) {
     commands
         .spawn()
@@ -21,8 +25,6 @@ fn add_people(mut commands: Commands) {
         .insert(Name("Zayna Nieves".to_string()));
 }
 
-struct GreetTimer(Timer);
-
 fn greet_people(time: Res<Time>, mut timer: ResMut<GreetTimer>, query: Query<&Name, With<Person>>) {
     if timer.0.tick(time.delta()).just_finished() {
         for name in query.iter() {
@@ -30,8 +32,6 @@ fn greet_people(time: Res<Time>, mut timer: ResMut<GreetTimer>, query: Query<&Na
         }
     }
 }
-
-pub struct HelloPlugin;
 
 impl Plugin for HelloPlugin {
     fn build(&self, app: &mut App) {
