@@ -1,3 +1,5 @@
-# Summary
+# Table of Contents
 
-- [Chapter 1](./chapter_1.md)
+## Rendering
+
+- [Chapter 1: Intro to Rendering](./chapter_01.md)
