@@ -35,7 +35,7 @@ fn greet_people(time: Res<Time>, mut timer: ResMut<GreetTimer>, query: Query<&Na
 
 impl Plugin for HelloPlugin {
     fn build(&self, app: &mut App) {
-        app.insert_resource(GreetTimer(Timer::from_seconds(2.0, true)))
+        app.insert_resource(GreetTimer(Timer::from_seconds(0.25, true)))
             .add_startup_system(add_people)
             .add_system(greet_people);
     }
